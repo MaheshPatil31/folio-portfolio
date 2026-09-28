@@ -134,3 +134,62 @@
 .app.dark .toggle.checked { background: var(--accent); }
 .app.dark .theme-control { background: var(--white); color: var(--ink); }
 @media (max-width: 560px) { .theme-control { min-width: 35px; width: 35px; padding: 0; } .theme-control span { display: none; } }
+
+.project-source-tabs { display:flex; gap:6px; padding:4px; margin:0 0 14px; border:1px solid var(--line); border-radius:8px; background:var(--surface-2,#eaf0f4); }
+.project-source-tabs button { min-height:36px; flex:1; display:flex; align-items:center; justify-content:center; gap:7px; border:1px solid transparent; border-radius:6px; background:transparent; color:var(--muted); font-size:11px; font-weight:600; }
+.project-source-tabs button.selected { background:var(--white); border-color:var(--line); color:var(--ink); box-shadow:0 1px 2px #1724340b; }
+.github-import { display:grid; gap:9px; margin:0 0 14px; padding:14px; border:1px solid var(--line); border-radius:8px; background:var(--surface-3,#f8fafc); }
+.github-import>p { margin:0; color:var(--muted); font-size:11px; line-height:1.6; }
+.github-import-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:8px; }
+.github-import-row input { min-width:0; min-height:40px; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--white); color:var(--ink); font:inherit; font-size:12px; }
+.github-import-row .button { min-height:40px; height:auto; border-radius:6px; padding:0 13px; }
+.github-import .field-error { margin:0; border-radius:5px; font-size:11px; }
+.github-import .github-import-success { display:flex; align-items:center; gap:6px; color:#16836f; font-size:11px; }
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+@media(max-width:700px) {
+  .app { font-size:16px; }
+  .public-top { min-height:64px; height:auto; }
+  .public-top .button,.landing-page .top-actions .button { min-height:40px; height:auto; padding:0 10px; font-size:11px; }
+  .theme-control { min-height:40px; }
+  .dash-top { min-height:64px; height:auto; }
+  .dash-top-right { gap:9px; }
+  .saved { font-size:9px; }
+  .side-nav>.nav-button { min-height:46px; font-size:12px; }
+  .dash-content { padding-top:25px; }
+  .page-heading p,.editor-card>p,.links-card-heading p,.setting-item>div>p,.live-copy p { font-size:13px; }
+  .page-eyebrow,.workspace-label,.nav-label,.form-field>span,.settings-group-label { font-size:9px; }
+  .filter-tabs button { min-height:38px; padding:8px 9px; font-size:11px; }
+  .manage-info h3 { font-size:12px; }
+  .manage-info p { font-size:10px; }
+  .manage-kicker,.project-status,.drag-help,.manage-actions .icon-button { font-size:9px; }
+  .stat-card>span,.stat-card>small,.recent-project>div span,.empty-state p { font-size:10px; }
+  .social-info b,.setting-item>b,.setting-item>div>b { font-size:12px; }
+  .social-info a,.setting-button small,.settings-layout .setting-item p { font-size:11px; }
+  .form-field input,.form-field textarea,.form-field select,.github-import-row input,.modal .form-field input,.modal .form-field textarea,.modal .form-field select { min-height:44px; font-size:16px!important; }
+  .modal .form-field>span { font-size:10px; }
+  .github-import>p,.github-import .field-error,.github-import .github-import-success { font-size:12px; }
+  .project-source-tabs button { min-height:44px; font-size:12px; }
+}
+@media(max-width:560px) {
+  .fields-grid { grid-template-columns:1fr; gap:14px; }
+  .project-modal .fields-grid { grid-template-columns:1fr; }
+  .project-modal { width:min(100%,520px); max-height:calc(100dvh - 16px); padding:24px 16px 18px; }
+  .project-modal>p { font-size:13px; }
+  .github-import { padding:11px; }
+  .github-import-row { grid-template-columns:1fr; }
+  .github-import-row .button { min-height:44px; }
+  .cover-upload { min-height:140px; height:140px; }
+  .dialog-footer { gap:12px; align-items:flex-start; }
+  .dialog-footer .button { min-height:44px; height:auto; font-size:12px; }
+  .publish-check { min-height:44px; font-size:11px; }
+  .project-modal .gallery-upload { gap:12px; }
+  .project-modal .gallery-upload>div:first-child span { font-size:11px; }
+  .landing-page .top-actions .button { font-size:10px; padding:0 8px; }
+}
+@media(max-width:380px) {
+  .landing-page .public-top { padding:0 8px; }
+  .landing-page .top-actions { gap:4px; }
+  .landing-page .top-actions .button { font-size:9px; padding:0 6px; }
+  .landing-hero h1 { font-size:56px; }
+  .dialog-footer { flex-direction:column; }
+}
