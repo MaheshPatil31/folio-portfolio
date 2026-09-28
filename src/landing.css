@@ -43,3 +43,94 @@
 
 @media(max-width:800px){.landing-hero{min-height:660px;padding:65px 6% 50px}.landing-hero h1{font-size:clamp(65px,11vw,90px)}.landing-art{top:244px;right:4%;transform:scale(.78);transform-origin:top right}.landing-vertical{right:8px}.database-notice{max-width:360px}.landing-hero>p{max-width:340px}.directory-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.landing-page .public-top{padding:0 13px}.landing-page .top-actions{gap:5px}.landing-page .top-actions .button{padding:0 7px;font-size:8px}.landing-page .top-actions .button svg{width:12px}.landing-hero{min-height:800px;padding:59px 20px 40px}.landing-hero h1{margin-top:26px;font-size:64px}.landing-hero>p{max-width:320px;font-size:11px}.landing-actions{align-items:flex-start;flex-direction:column;gap:13px}.landing-art{top:390px;right:10%;transform:scale(.72)}.database-notice{position:absolute;right:20px;bottom:22px;left:20px;margin:0}.landing-vertical{right:5px;bottom:29px;font-size:6px}.landing-bottom{padding:14px 17px;gap:8px;flex-wrap:wrap;font-size:6px}.landing-bottom span:last-child{display:none}.directory-main{padding:48px 17px 65px}.directory-grid{grid-template-columns:1fr 1fr;gap:8px}.directory-card{padding:8px}.directory-card-top{height:95px}.directory-card h2{font-size:12px}.directory-card>p{font-size:8px}.directory-skills span{padding:4px 5px;font-size:6px}.directory-skills small{font-size:6px}.directory-main>h1{font-size:46px}.not-found h1{font-size:43px}}
+
+/* Modern workspace theme: quiet blue-gray surfaces, precise lines, and a restrained cyan accent. */
+.app {
+  --paper: #f4f6f8;
+  --ink: #172434;
+  --muted: #637184;
+  --line: #dce3ea;
+  --green: #176b78;
+  --mint: #c9eceb;
+  --white: #ffffff;
+  --surface-2: #eaf0f4;
+  --surface-3: #f8fafc;
+  --accent: #087e8b;
+  --accent-soft: #dff2f1;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', Inter, ui-sans-serif, system-ui, sans-serif;
+}
+.app.dark {
+  --paper: #101923;
+  --ink: #edf4fa;
+  --muted: #99aaba;
+  --line: #2a3948;
+  --green: #75d0ca;
+  --mint: #153b40;
+  --white: #172431;
+  --surface-2: #1c2a38;
+  --surface-3: #13202c;
+  --accent: #72d0c9;
+  --accent-soft: #173b40;
+  color-scheme: dark;
+}
+.app :is(h1,h2,h3,.serif-italic,.headline-accent,.tip-card h3,.modal h2,.hero-note span,.art-note,.mini-copy em),
+.app :is(i,em) { font-family: inherit !important; font-style: normal !important; }
+.app :is(.serif-italic,.headline-accent) { font-weight: 650; letter-spacing: -.045em; }
+.theme-control {
+  height: 34px; min-width: 72px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  border: 1px solid var(--line); border-radius: 7px; background: var(--white); color: var(--muted); font-size: 11px; font-weight: 600;
+  transition: border-color .18s, color .18s, background .18s, transform .18s;
+}
+.theme-control:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.theme-control svg { color: var(--accent); }
+.landing-page { background: var(--paper); }
+.landing-hero {
+  background-image: linear-gradient(to right, color-mix(in srgb, var(--line) 35%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--line) 35%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px; background-position: center -1px;
+}
+.landing-hero h1,.hero h1,.section-heading h2,.about-grid h2,.contact-section h2,.page-heading h1,.directory-main>h1,.not-found h1 { letter-spacing: -.055em; font-weight: 600; }
+.hero-note,.art-note { font-family: 'DM Sans', Inter, ui-sans-serif, system-ui, sans-serif; }
+.button,.icon-button,.theme-toggle,.nav-button,.directory-card,.manage-project,.settings-group,.editor-card,.aside-card,.panel-card,.links-card,.live-card { border-radius: 8px; }
+.button-dark { background: #172a3a; color: #f7fbff; }
+.button-dark:hover { background: #23465a; }
+.button-ghost:hover { border-color: var(--accent); background: var(--surface-2); }
+.landing-text-button,.text-link,.hero-note svg,.art-spark,.contact-kicker,.not-found-mark { color: var(--accent); }
+.database-notice,.help-card,.tip-card,.links-tip,.note-aside,.contact-section { background: var(--surface-2); }
+.art-card { border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); color: var(--ink); }
+.art-card-head,.art-card-foot,.art-card-line { border-color: var(--line); }
+.art-card-body>b { letter-spacing: -.055em; }
+.art-note { border: 1px solid var(--line); border-radius: 8px; background: var(--white); color: var(--ink); font-size: 13px; font-weight: 600; }
+.hero-stamp { border-color: var(--line); background: color-mix(in srgb, var(--paper) 92%, transparent); color: var(--accent); }
+.project-image,.directory-card-top,.avatar-preview,.mini-placeholder { background: var(--surface-2); }
+.directory-card-arrow { background: var(--paper); }
+.directory-card:hover,.manage-project:hover { border-color: var(--accent); }
+.directory-search,.live-card,.panel-card,.editor-card,.aside-card,.links-card,.settings-group,.stat-card,.manage-project { background: var(--white); }
+.avatar-upload-row,.url-input>span,.recent-project>.tag-live,.featured-label { background: var(--surface-2); }
+.nav-button.active { background: var(--accent-soft); color: var(--accent); }
+.nav-button:hover,.icon-button:hover { background: var(--surface-2); }
+.status-dot { background: #1aa58f; box-shadow: 0 0 0 3px color-mix(in srgb, #1aa58f 16%, transparent); }
+.toggle.checked,.live-switch:has(.switch-on) { background: var(--accent); }
+.form-field input,.form-field textarea,.form-field select,.url-input { background: var(--surface-3); color: var(--ink); }
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus,.directory-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent); }
+.not-found { background: var(--paper); }
+.app.dark :is(.landing-page,.directory-page,.not-found) { background-color: var(--paper); color: var(--ink); }
+.app.dark :is(.public-top,.dash-top,.side-nav,.work-section,.about-section,.public-footer,.workspace,.logout,.version-note,.settings-group,.setting-item,.setting-button,.links-card-heading,.social-row,.links-tip,.links-tip p) { border-color: var(--line); }
+.app.dark :is(.landing-eyebrow,.hero-intro,.hero-person span,.hero-location,.section-kicker,.section-side p,.section-side a,.project-card-info p,.project-card-meta,.about-copy p,.about-details span,.available,.page-heading p,.saved,.workspace span,.workspace>svg,.nav-button,.nav-count,.help-card p,.version-note,.directory-intro,.directory-card>p,.directory-skills span,.directory-skills small,.directory-message p,.directory-empty p,.not-found>p,.form-field>span,.form-field small,.links-card-heading p,.social-info a,.setting-item>div>p,.setting-button small,.settings-group-label,.live-copy p,.panel-kicker,.recent-project>div span,.stat-card>span,.profile-completion span,.empty-state p,.links-tip p) { color: var(--muted); }
+.app.dark :is(.database-notice,.help-card,.tip-card,.links-tip,.note-aside,.contact-section,.avatar-upload-row,.url-input>span,.nav-button.active,.nav-button:hover,.icon-button:hover,.directory-card-top,.project-image,.avatar-preview,.mini-placeholder,.recent-project>.tag-live,.recent-project>.tag-draft,.empty-state,.platform-icon,.featured-label,.filter-tabs button.selected) { background: var(--surface-2); }
+.app.dark :is(.database-notice span,.database-notice b,.art-card,.art-note,.art-card-head span,.art-card-body>span,.art-card-body small,.art-card-foot,.hero-stamp,.contact-socials a,.live-indicator,.project-status,.workspace-label,.nav-label,.page-eyebrow,.panel-kicker,.manage-kicker,.live-copy p,.directory-card>p,.directory-skills span,.form-field>span,.social-info a,.setting-button,.theme-toggle,.empty-state p) { color: var(--muted); }
+.app.dark .art-card { border-color: var(--line); background: var(--surface-2); color: var(--ink); }
+.app.dark .art-note { border-color: var(--line); background: var(--white); color: var(--ink); }
+.app.dark .contact-section { color: var(--ink); }
+.app.dark .button-dark { background: #d8eeed; color: #10252c; }
+.app.dark .button-dark:hover { background: #bce5e2; }
+.app.dark .live-preview { border-color: var(--line); background: #eef3f6; color: #172434; }
+.app.dark .mini-browser { background: #e2e9ee; }
+.app.dark .mini-bottom { border-color: #cbd5dd; }
+.app.dark .modal { background: var(--white); color: var(--ink); }
+.app.dark .empty-state { border-color: var(--line); }
+.app.dark .toggle { background: #40505f; }
+.app.dark .toggle.checked { background: var(--accent); }
+.app.dark .theme-control { background: var(--white); color: var(--ink); }
+@media (max-width: 560px) { .theme-control { min-width: 35px; width: 35px; padding: 0; } .theme-control span { display: none; } }
