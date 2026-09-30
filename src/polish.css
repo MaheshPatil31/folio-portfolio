@@ -1,0 +1,141 @@
+/* UI polish layer: readable type scale, better contrast, sturdier responsive layout.
+   Loaded last (see main.tsx) so it overrides the base styles without touching them.
+   Remove the import in main.tsx to revert everything in this file. */
+
+/* ---------- Global safety ---------- */
+.app { overflow-x: clip; }
+img { max-width: 100%; }
+button, .button { touch-action: manipulation; }
+:where(a, button, input, textarea, select):focus-visible { outline: 3px solid color-mix(in srgb, var(--accent, #087e8b) 55%, transparent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* ---------- Type scale: small mono labels ---------- */
+.eyebrow, .section-kicker, .contact-kicker, .page-eyebrow, .workspace-label, .nav-label, .panel-kicker,
+.settings-group-label, .manage-kicker, .links-card-heading>span, .social-link-label, .form-field>span,
+.live-indicator, .hero-side-note, .project-toolbar, .version-note, .landing-eyebrow, .landing-bottom,
+.featured-label, .about-details span, .section-side a, .drag-help, .nav-count, .available, .saved,
+.directory-skills small, .project-card-meta, .char-count, .auth-google-note, .public-footer>span,
+.public-footer>button, .directory-search>span {
+  font-size: 11px; letter-spacing: .06em; color: var(--muted);
+}
+.stat-card>span { font-size: 10px; color: var(--muted); }
+.page-eyebrow { font-size: 11px; }
+
+/* ---------- Type scale: body copy ---------- */
+.hero-intro { font-size: 16px; line-height: 1.75; max-width: 460px; color: var(--muted); }
+.landing-hero>p { font-size: 16px; max-width: 440px; color: var(--muted); }
+.section-side p { font-size: 13px; color: var(--muted); }
+.about-copy p { font-size: 14px; line-height: 1.85; color: var(--muted); }
+.page-heading p { font-size: 14px; max-width: 520px; color: var(--muted); }
+.live-copy p { font-size: 13px; max-width: 300px; color: var(--muted); }
+.editor-card>p, .aside-card>p, .empty-state p, .help-card p, .tip-card p, .links-card-heading p,
+.links-tip p, .setting-item>div>p, .setting-button small, .modal>p, .directory-message p,
+.directory-empty p, .saving-note, .project-card-info p, .directory-card>p, .form-field small {
+  font-size: 12px; color: var(--muted);
+}
+.tip-card p { max-width: 220px; }
+.modal>p { font-size: 13px; }
+.directory-intro { font-size: 15px; color: var(--muted); }
+.not-found>p { font-size: 13px; color: var(--muted); }
+.database-notice { font-size: 12px; }
+.hero-person strong { font-size: 13px; }
+.hero-person span, .hero-location { font-size: 11px; color: var(--muted); }
+.social-info a, .recent-project>div span, .stat-card>small, .avatar-upload-row span, .project-extra { font-size: 11px; color: var(--muted); }
+.auth-error, .field-error { font-size: 12px; }
+.auth-switch, .auth-switch button, .auth-text-link { font-size: 12px; }
+.publish-check { font-size: 12px; }
+
+/* ---------- Type scale: titles, nav, controls ---------- */
+.project-card-info h3 { font-size: 16px; }
+.manage-info h3 { font-size: 15px; }
+.manage-info p { font-size: 12px; max-width: 420px; color: var(--muted); }
+.social-info b, .setting-item>b, .setting-item>div>b, .setting-button b, .about-details b { font-size: 13px; }
+.recent-project b, .workspace b, .help-card>b, .avatar-upload-row b { font-size: 12px; }
+.workspace span { font-size: 11px; color: var(--muted); }
+.nav-button { font-size: 13px; min-height: 40px; }
+.skills-list span { font-size: 12px; padding: 7px 12px; }
+.filter-tabs button { font-size: 12px; }
+.project-tags span, .project-status, .directory-skills span, .url-input>span { font-size: 10px; }
+.empty-state h3 { font-size: 16px; }
+.directory-card h2 { font-size: 17px; }
+.contact-email { font-size: 15px; }
+.contact-socials a { font-size: 12px; }
+.text-link, .panel-heading .text-link, .tip-card .text-link, .theme-toggle, .landing-text-button, .help-card a { font-size: 12px; }
+.button { font-size: 13px; }
+.button.small { font-size: 12px; }
+.upload-button { font-size: 11px !important; height: 32px !important; }
+.toast { font-size: 13px; }
+.form-field input, .form-field textarea, .form-field select,
+.modal .form-field input, .modal .form-field textarea, .modal .form-field select { font-size: 14px; min-height: 40px; }
+.directory-search input { font-size: 14px; }
+.app.dark :is(.project-card-info p, .manage-info p, .about-copy p, .hero-intro) { color: var(--muted); }
+
+/* ---------- Hero / project cards on desktop ---------- */
+.landing-hero h1 { font-size: clamp(56px, 7.4vw, 108px); }
+.project-card-info { align-items: flex-start; }
+.project-card-meta { align-items: center; }
+
+/* ---------- Landing page: stack cleanly below 1000px ---------- */
+@media (max-width: 1000px) {
+  .landing-hero { min-height: 0; display: flex; flex-direction: column; padding: 60px 6% 48px; }
+  .landing-hero h1 { max-width: none; }
+  .landing-art { position: relative; top: auto; right: auto; transform: none; width: min(100%, 360px); height: 440px; margin: 48px auto 0; }
+  .database-notice { position: relative; inset: auto; max-width: 460px; margin: 30px 0 0; }
+  .landing-vertical { display: none; }
+}
+@media (max-width: 560px) {
+  .landing-hero { padding: 44px 20px 40px; }
+  .landing-hero h1 { font-size: clamp(44px, 14vw, 60px); margin: 22px 0 16px; }
+  .landing-hero>p { font-size: 15px; }
+  .landing-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .landing-actions .button { min-height: 46px; }
+  .landing-art { height: 400px; margin-top: 40px; }
+  .art-card { width: 236px; height: 326px; }
+  .art-card-body>b { font-size: 34px; }
+  .database-notice { max-width: none; font-size: 12px; }
+  .landing-bottom { flex-wrap: wrap; gap: 8px 18px; font-size: 10px; }
+}
+
+/* ---------- Public portfolio (/u/name) on phones ---------- */
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr; padding: 44px 0 48px; gap: 36px; }
+  .hero h1 { font-size: clamp(42px, 13vw, 60px); }
+  .hero-intro { font-size: 15px; max-width: none; }
+  .hero-image-wrap { height: min(72vw, 320px); max-width: 280px; justify-self: start; margin-left: 20px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 14px 22px; }
+  .hero-person strong { font-size: 13px; }
+  .hero-person span, .hero-location { font-size: 12px; }
+  .project-card-info h3 { font-size: 14px; }
+  .project-card-info p { font-size: 12px; }
+  .project-card-meta { font-size: 10px; }
+  .section-side p { font-size: 12px; }
+  .section-side a { font-size: 10px; }
+  .about-copy p { font-size: 14px; }
+  .about-details b { font-size: 12px; }
+  .public-footer>span, .public-footer>button { font-size: 10px; max-width: none; }
+  .project-extra, .project-extra a { font-size: 11px; }
+}
+
+/* ---------- Dashboard on phones ---------- */
+@media (max-width: 700px) {
+  .stat-card>span { font-size: 9px; }
+  .stat-card>small { font-size: 10px; }
+  .page-heading h1 { font-size: 36px; }
+  .page-heading p { font-size: 13px; }
+  .manage-info h3 { font-size: 13px; }
+  .manage-info p { font-size: 11px; max-width: 100%; }
+  .manage-kicker, .project-status { font-size: 9px; }
+  .manage-actions .icon-button { width: 34px; height: 34px; }
+  .icon-button { min-width: 34px; min-height: 34px; }
+  .social-info a { font-size: 11px; }
+  .filter-tabs button { min-height: 38px; font-size: 11px; }
+  .nav-button { min-height: 46px; font-size: 12px; }
+  .tip-card p { max-width: 260px; }
+}
+@media (max-width: 410px) {
+  .hero-image-wrap { margin-left: 12px; max-width: 240px; }
+  .manage-info p { max-width: 100%; }
+}
